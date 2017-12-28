@@ -1,9 +1,9 @@
 pipeline {
-    agent Master
-    git credentialsId: '0ab2ce6b-c203-4019-bc26-033fe0b6bfd2', url: 'https://github.com/prasadm3024/devopstraining.git'
+    agent  any
+    
     tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+        maven 'MAVEN'
+        jdk 'JDK'
     }
     stages {
         stage ('Initialize') {
