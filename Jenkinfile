@@ -6,6 +6,7 @@ pipeline {
         jdk 'JDK'
     }
     stages {
+    checkout SCM
         stage ('Initialize') {
             steps {
                 bat '''
