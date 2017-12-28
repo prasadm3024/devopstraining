@@ -1,0 +1,3 @@
+node{
+git credentialsId: '0ab2ce6b-c203-4019-bc26-033fe0b6bfd2', url: 'https://github.com/prasadm3024/devopstraining.git'
+}
