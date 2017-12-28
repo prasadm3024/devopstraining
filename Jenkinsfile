@@ -2,7 +2,7 @@
 pipeline { 
     agent any  
     stages { 
-        satge('Git'){
+        stage('Git'){
                  steps {
             script {
                 GIT_COMMIT = bat (
@@ -16,7 +16,7 @@ pipeline {
                 ).trim()
             }
         }  
-                
+     }         
         stage('Build') { 
             steps { 
                echo 'This is a minimal pipeline.' 
