@@ -17,7 +17,7 @@ pipeline {
 
             steps {
 
-                bat 'cd payslip & mvn clean install' 
+                sh 'cd payslip & mvn clean install' 
 
             }
 
