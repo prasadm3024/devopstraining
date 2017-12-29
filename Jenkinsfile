@@ -5,7 +5,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
                     doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Git installations Windows', submoduleCfg: [], 
-                    userRemoteConfigs: [[credentialsId: '0bde1bacd4d52d060d30573b01ce7c5d746e38b0', url: 'https://github.com/prasadm3024/devopstraining.git']]])
+                    userRemoteConfigs: [[credentialsId: '0ab2ce6b-c203-4019-bc26-033fe0b6bfd2', url: 'https://github.com/prasadm3024/devopstraining.git']]])
             }
         }
         stage('Build') { 
