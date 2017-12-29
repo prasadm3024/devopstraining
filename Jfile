@@ -1,0 +1,42 @@
+factory.newBuildInfo()
+
+  def scannerHome = tool 'SonarQube Scanner 2.8'
+
+  def ocCmd = "oc --token=`cat /var/run/secrets/kubernetes.io/serviceaccount/token` --server=https://openshift.default.svc.cluster.local --certificate-authority=/run/secrets/kubernetes.io/serviceaccount/ca.crt --namespace=`cat /var/run/secrets/kubernetes.io/serviceaccount/namespace`"
+
+
+
+
+
+  stage('SCM: checkout') {
+
+    git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
+
+  }
+
+
+
+  stage('Artifactory: configuration') {
+
+    artifactoryMaven.tool = "Maven" // Tool name from Jenkins configuration
+
+    artifactoryMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: artifactory
+
+    artifactoryMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: artifactory
+
+
+
+    buildInfo.env.capture = true
+
+    buildInfo.retention maxBuilds: 10, maxDays: 7, deleteBuildArtifacts: true
+
+  }
+
+
+
+  stage('Maven: build') {
+
+    artifactoryMaven.run pom: 'kitchensink/pom.xml', goals: 'clean install', buildInfo: buildInfo
+
+  }
+}
