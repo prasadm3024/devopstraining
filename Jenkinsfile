@@ -3,11 +3,7 @@
     agent {
         label "master"
     }
-        tools
-        {
-        maven "Maven"
-        jdk "JDK"
-        }
+        
         
     stages { 
         stage('Checkout') {
@@ -23,6 +19,11 @@
                   }
                         }
     stage ('Build2') {
+     tools
+        {
+        maven "Maven"
+        jdk "JDK"
+        }
 
             steps {
 
