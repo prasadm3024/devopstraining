@@ -39,4 +39,3 @@ factory.newBuildInfo()
     artifactoryMaven.run pom: 'kitchensink/pom.xml', goals: 'clean install', buildInfo: buildInfo
 
   }
-}
