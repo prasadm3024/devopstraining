@@ -1,5 +1,11 @@
-node { 
-    agent any  
+pipeline{ 
+    agent any{
+        tools
+        {
+        maven "Maven"
+        jdk "JDK"
+        }
+        
     stages { 
         stage('Checkout') {
             steps {
@@ -19,17 +25,18 @@ node {
 
                 bat "cd payslip & mvn clean install"
 
-            }
-
+                    }
+    
             post {
 
                 success {
 
-                    junit "payslip/target/surefire-reports/**/*.xml"
+                    junit "payslip/target/surefire-reports/*.xml"
+
+                        }
 
                 }
-
-            }
-    }
+                      }
+}
 }
 }
