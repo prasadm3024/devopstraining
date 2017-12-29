@@ -27,7 +27,7 @@
 
             steps {
 
-                bat "cd payslip & mvn clean install"
+                bat 'cd payslip & mvn clean install'
 
                     }
     
