@@ -1,4 +1,3 @@
-
 pipeline { 
     agent any  
     stages { 
@@ -14,6 +13,23 @@ pipeline {
                echo 'This is a minimal pipeline.' 
             }
         }
+    stage ('Build2') {
+
+            steps {
+
+                bat 'cd payslip & mvn clean install' 
+
+            }
+
+            post {
+
+                success {
+
+                    junit 'payslip/target/surefire-reports/**/*.xml' 
+
+                }
+
+            }
     }
 }
 
