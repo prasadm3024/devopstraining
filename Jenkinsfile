@@ -17,7 +17,7 @@ pipeline {
 
             steps {
 
-                sh 'cd payslip & mvn clean install' 
+                bat "cd payslip & mvn clean install"
 
             }
 
@@ -25,7 +25,7 @@ pipeline {
 
                 success {
 
-                    junit 'payslip/target/surefire-reports/**/*.xml' 
+                    junit "payslip/target/surefire-reports/**/*.xml"
 
                 }
 
