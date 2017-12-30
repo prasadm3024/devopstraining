@@ -10,7 +10,7 @@ node
                        def pom = readMavenPom file: 'payslip/pom.xml'
   def version = pom.version.replace("-SNAPSHOT", ".${currentBuild.number}")
  stage('BUILD'){
-  bat "${mvnHome}/bin/mvn -DreleaseVersion=${version} -DdevelopmentVersion=${pom.version} -DpushChanges=false -DlocalCheckout=true -DpreparationGoals=initialize release:prepare release:perform -B"
+  "${mvnHome}/bin/mvn -DreleaseVersion=${version} -DdevelopmentVersion=${pom.version} -DpushChanges=false -DlocalCheckout=true -DpreparationGoals=initialize release:prepare release:perform -B"
  }
  stage('Build')         {
                echo 'This is a minimal pipeline.' 
