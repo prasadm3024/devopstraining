@@ -10,7 +10,7 @@
                echo 'This is a minimal pipeline.' 
                         }
     stage ('Build2') {
-                cd payslip & mvn clean install
+                "cd payslip & mvn clean install"
     }
      stage ('test'){
                     junit "payslip/target/surefire-reports/*.xml"
