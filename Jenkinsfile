@@ -18,8 +18,8 @@ node
     stage ('Build2') {
                 "cd payslip & mvn clean install"
     }
-     stage ('test'){
-                    junit "payslip/target/surefire-reports/*.xml"
-                        }
-                }
+    // stage ('test'){
+         //           junit "payslip/target/surefire-reports/*.xml"
+         //               }
+         //       }
  
