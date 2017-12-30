@@ -1,27 +1,70 @@
 pipeline {
-    agent  any
-    
-    tools {
-        maven 'Maven'
-        jdk 'JDK'
+
+    agent {
+
+        label "master"
+
     }
+
+    tools {
+
+        maven 'Maven'
+
+        jdk 'JDK'
+
+    }
+
     stages {
-    checkout scm
+
         stage ('Initialize') {
+
             steps {
-                withMAVEN(
+
+                bat '''
+
+                    echo "PATH = %PATH%"
+
+                    echo "M2_HOME = %M2_HOME%"
+
+                '''
+
             }
+
         }
 
+
+
         stage ('Build') {
+
             steps {
-                bat 'cd payslip & mvn clean install' 
+
+                    bat 'cd payslip & mvn install'
+
             }
-            post {
+
+             post {
+
                 success {
-                    junit 'payslip/target/surefire-reports/**/*.xml' 
-                }
+
+                    junit 'payslip/target/surefire-reports/*.xml'
+
+                        }
+
+                 }
+
+               
+
+
+
+           
+
             }
+
         }
-    }
+
+    
+
 }
+
+
+
