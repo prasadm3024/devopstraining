@@ -21,5 +21,5 @@ node
     // stage ('test'){
          //           junit "payslip/target/surefire-reports/*.xml"
          //               }
-         //       }
+          }
  
