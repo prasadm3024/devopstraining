@@ -1,6 +1,5 @@
  node
 { 
-    stages { 
         stage('Checkout') {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
                     doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Git installations Windows', submoduleCfg: [], 
@@ -17,4 +16,4 @@
                     junit "payslip/target/surefire-reports/*.xml"
                         }
                 }
- }
+ 
