@@ -2,9 +2,11 @@ pipeline
 
 { 
 agent any
- def maven = tool 'maven3'
+tools{
+ maven = 'maven3'
 
- def jdk = tool 'jdk8'
+ jdk = 'jdk8'
+ }
 stages{
  stage('Checkout') {
  steps{
