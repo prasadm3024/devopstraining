@@ -1,7 +1,7 @@
 node
 { 
  def mvnHome = tool 'Maven'
- def jdk = tool 'JDK'
+ def jdk = tool 'JDK8'
  stage('Checkout') {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
                     doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Git installations Windows', submoduleCfg: [], 
@@ -16,7 +16,7 @@ node
                echo 'This is a minimal pipeline.' 
  }
     stage ('Build2') {
-                "cd payslip & mvn clean install"
+              sh  "cd payslip & mvn clean install"
     }
     // stage ('test'){
          //           junit "payslip/target/surefire-reports/*.xml"
