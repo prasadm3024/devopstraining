@@ -2,7 +2,7 @@ node
 
 { 
 
- def mvnHome = tool 'Maven3'
+ def mvnHome = tool 'maven3'
 
  def jdk = tool 'jdk8'
 
