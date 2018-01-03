@@ -12,19 +12,19 @@ node
 
                     doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'git', submoduleCfg: [], 
 
-                    userRemoteConfigs: [[credentialsId: '0ab2ce6b-c203-4019-bc26-033fe0b6bfd2', url: 'https://github.com/prasadm3024/devopstraining.git']]])
+                    userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
  }
 
-                       def pom = readMavenPom file: 'pom.xml'
+                      // def pom = readMavenPom file: 'pom.xml'
 
-  def version = pom.version.replace("-SNAPSHOT", ".${currentBuild.number}")
+  //def version = pom.version.replace("-SNAPSHOT", ".${currentBuild.number}")
 
- stage('BUILD'){
+ //stage('BUILD'){
 
-  "${mvnHome}/bin/mvn -DreleaseVersion=${version} -DdevelopmentVersion=${pom.version} -DpushChanges=false -DlocalCheckout=true -DpreparationGoals=initialize release:prepare release:perform -B"
+ // "${mvnHome}/bin/mvn -DreleaseVersion=${version} -DdevelopmentVersion=${pom.version} -DpushChanges=false -DlocalCheckout=true -DpreparationGoals=initialize release:prepare release:perform -B"
 
- }
+// }
 
  stage('Build')         {
 
