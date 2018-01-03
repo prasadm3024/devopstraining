@@ -1,6 +1,6 @@
 node
 { 
- def maven = tool 'Maven'
+ def mvnHome = tool 'Maven'
  def jdk = tool 'JDK8'
  stage('Checkout') {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
