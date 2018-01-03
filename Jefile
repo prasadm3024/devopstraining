@@ -7,14 +7,16 @@ node
  def jdk = tool 'jdk8'
 
  stage('Checkout') {
+ steps{
 
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
 
-                    doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'git', submoduleCfg: [], 
+                    doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Default', submoduleCfg: [], 
 
                     userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
- }
+}
+}
 
                       // def pom = readMavenPom file: 'pom.xml'
 
@@ -27,15 +29,15 @@ node
 // }
 
  stage('Build')         {
-
+steps{
                echo 'This is a minimal pipeline.' 
-
+}
  }
 
     stage ('Build2') {
-
+steps{
               sh "mvn clean install"
-
+}
     }
 
     // stage ('test'){
