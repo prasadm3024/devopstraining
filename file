@@ -2,7 +2,7 @@ node
 
 { 
 
- def maven = tool 'maven3'
+
 
  def jdk = tool 'jdk8'
 
@@ -20,7 +20,7 @@ node
 checkout scm
 
 
-    //git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
+    git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
 
 
 
@@ -31,7 +31,7 @@ checkout scm
                echo 'This is a minimal pipeline.' 
 
  }
-withEnv("maven:jdk")
+withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"])
     stage ('Build2') {
 
               sh  "mvn clean install"
