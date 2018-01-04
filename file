@@ -14,7 +14,7 @@ node
 
                ////   userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
- }
+ //}
 
  stage('SCM: checkout') {
 checkout scm
@@ -44,4 +44,4 @@ withEnv("maven:jdk")
 
          //               }
 
-          }
+      }
