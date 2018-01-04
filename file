@@ -1,0 +1,39 @@
+node
+
+{ 
+
+ def maven = tool 'maven3'
+
+ def jdk = tool 'jdk8'
+
+ stage('Checkout') {
+
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+
+                    doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Default', submoduleCfg: [], 
+
+                    userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
+
+ }
+
+                   
+
+ stage('Build')         {
+
+               echo 'This is a minimal pipeline.' 
+
+ }
+
+    stage ('Build2') {
+
+              sh  "mvn clean install"
+
+    }
+
+    // stage ('test'){
+
+         //           junit "payslip/target/surefire-reports/*.xml"
+
+         //               }
+
+          }
