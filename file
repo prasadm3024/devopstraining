@@ -31,9 +31,9 @@ checkout scm
                echo 'This is a minimal pipeline.' 
 
  }
-withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"])
-    stage ('Build2') {
 
+    stage ('Build2') {
+withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"])
               sh  "mvn clean install"
 
     }
