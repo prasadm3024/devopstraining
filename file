@@ -3,6 +3,7 @@ agent any
 node{
 def mvnHome = tool 'maven3'
  def jHome = tool 'jdk8'
+ }
 stages{
 stage('Checkout') {
 steps{
@@ -46,4 +47,4 @@ withEnv(["PATH=${jHome}/bin"]) {
 
       }
 }
-}
+
