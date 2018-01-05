@@ -10,7 +10,7 @@ def mvnHome = tool 'maven3'
 
           ////   checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
 
-             ////     doGenerateSubmoduleConfigurations: false, extensions: [], gitTool: 'Default', submoduleCfg: [], 
+             ////     doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
 
                ////   userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
@@ -19,21 +19,21 @@ def mvnHome = tool 'maven3'
  stage('SCM: checkout') 
 checkout scm
 
-
+{
     git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
-
+}
 
 
                   
 
  stage('Build')         
-
+{
                echo 'This is a minimal pipeline.' 
-
+}
  
     stage ('Build2') {
 //withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
-withEnv("PATH=${env.jHome}/bin"){
+withEnv(["PATH=${jHome}/bin"]) {
              sh "${mvnHome}/bin/mvn clean install" 
              }
              //sh  "mvn clean install"
