@@ -28,14 +28,14 @@ steps{
     steps{
   //  def mvnHome = ${tool 'maven3'}
  //def jHome = ${tool 'jdk8'}
-//withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
+withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
 withEnv(["PATH=${tool 'jdk8'}/bin"]) {
 
-             sh "${tool 'maven3'}/bin mvn clean install" 
+             sh "mvn clean install" 
              }
              }
              //sh  "mvn clean install"
-//}
+}
     }
 
     // stage ('test'){
