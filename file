@@ -36,14 +36,14 @@ withMaven(jdk: 'jdk8', maven: 'maven3') {
          //           junit "target/surefire-reports/*.xml"
 
          //               }
-stage('mail'){
-withCredentials([usernameColonPassword(credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', variable: '')]) {
+//stage('mail'){
+//withCredentials([usernameColonPassword(credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', variable: '')]) {
    
 
-mail bcc: '', body: 'with some errors', cc: 'rajesh.tupakula@hotmail.com', from: 'prasadm3024@gmail.com', replyTo: '', subject: 'Veera-maven build without tools step', to: 'prasadm3024@gmail.com'
+//mail bcc: '', body: 'with some errors', cc: 'rajesh.tupakula@hotmail.com', from: 'prasadm3024@gmail.com', replyTo: '', subject: 'Veera-maven build without tools step', to: 'prasadm3024@gmail.com'
 
-}
-}
+//}
+//}
       }
 
 
