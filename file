@@ -1,8 +1,9 @@
 pipeline{
 agent any
+node{
 def mvnHome = tool 'maven3'
  def jHome = tool 'jdk8'
-
+stages{
 stage('Checkout') {
 steps{
              checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
@@ -44,3 +45,5 @@ withEnv(["PATH=${jHome}/bin"]) {
          //               }
 
       }
+}
+}
