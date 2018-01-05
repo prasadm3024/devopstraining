@@ -33,7 +33,7 @@ checkout scm
  
     stage ('Build2') {
 //withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
-withEnv(${"PATH=${env.jHome}/bin"}){
+withEnv("PATH=${env.jHome}/bin"){
              sh "${mvnHome}/bin/mvn clean install" 
              }
              //sh  "mvn clean install"
