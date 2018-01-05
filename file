@@ -6,22 +6,21 @@ node
 def mvnHome = tool 'maven3'
  def jHome = tool 'jdk8'
 
-////////stage('Checkout') {
+stage('Checkout') {
 
-          ////   checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+             checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
 
-             ////     doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
+                doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
 
-               ////   userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
+                  userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
- //}
+ }
 
- stage('SCM: checkout') 
-checkout scm
-
-{
-    git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
-}
+// stage('SCM: checkout') 
+//checkout scm
+//{
+    //git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
+//}
 
 
                   
