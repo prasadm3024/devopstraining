@@ -3,11 +3,8 @@ agent any
 stages{
 stage('Checkout') {
 steps{
-             checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 
-                doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
-
-                  userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
 }
  }
 
@@ -28,15 +25,13 @@ steps{
     steps{
   //  def mvnHome = ${tool 'maven3'}
  //def jHome = ${tool 'jdk8'}
-withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
-withEnv(["PATH=${tool 'jdk8'}/bin"]) {
-
-             sh "mvn clean install" 
-             }
-             }
-             //sh  "mvn clean install"
+//withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
+//withEnv(["PATH=${tool 'jdk8'}/bin"]) {
+withMaven(jdk: 'jdk8', maven: 'maven3') {
+    sh "mvn clean install"
 }
-    }
+}
+  }
 
     // stage ('test'){
 
