@@ -36,7 +36,11 @@ withMaven(jdk: 'jdk8', maven: 'maven3') {
          //           junit "target/surefire-reports/*.xml"
 
          //               }
+stage('mail'){
+mail bcc: '', body: 'with some errors', cc: 'rajesh.tupakula@hotmail.com', from: 'prasadm3024@gmail.com', replyTo: '', subject: 'Veera-maven build without tools step', to: 'prasadm3024@gmail.com'
 
+
+}
       }
 
 
