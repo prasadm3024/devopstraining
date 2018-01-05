@@ -1,9 +1,5 @@
 pipeline{
 agent any
-
-{ 
-
-
 def mvnHome = tool 'maven3'
  def jHome = tool 'jdk8'
 
@@ -22,9 +18,6 @@ steps{
 //{
     //git url: 'https://github.com/prasadm3024/devopstraining.git', branch: 'master'
 //}
-
-
-                  
 
  stage('Build')         
 {
@@ -51,4 +44,3 @@ withEnv(["PATH=${jHome}/bin"]) {
          //               }
 
       }
-}
