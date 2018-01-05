@@ -1,4 +1,5 @@
-node
+pipeline{
+agent any
 
 { 
 
@@ -7,13 +8,13 @@ def mvnHome = tool 'maven3'
  def jHome = tool 'jdk8'
 
 stage('Checkout') {
-
+steps{
              checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
 
                 doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], 
 
                   userRemoteConfigs: [[credentialsId: 'bbc1a828-3acf-47cb-80b5-c78e2e1c06fa', url: 'https://github.com/prasadm3024/devopstraining.git']]])
-
+}
  }
 
 // stage('SCM: checkout') 
@@ -27,13 +28,17 @@ stage('Checkout') {
 
  stage('Build')         
 {
-               echo 'This is a minimal pipeline.' 
+steps{
+               echo 'This is a minimal pipeline.
+               }
 }
  
     stage ('Build2') {
+    steps{
 //withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
 withEnv(["PATH=${jHome}/bin"]) {
              sh "${mvnHome}/bin/mvn clean install" 
+             }
              }
              //sh  "mvn clean install"
 //}
@@ -46,3 +51,4 @@ withEnv(["PATH=${jHome}/bin"]) {
          //               }
 
       }
+}
