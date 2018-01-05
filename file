@@ -4,7 +4,7 @@ node
 
 
 def mvnHome = tool 'maven3'
- def jdk = tool 'jdk8'
+ def jHome = tool 'jdk8'
 
 ////////stage('Checkout') {
 
@@ -26,15 +26,16 @@ checkout scm
 
                   
 
- stage('Build')         {
+ stage('Build')         
 
                echo 'This is a minimal pipeline.' 
 
- }
-
+ 
     stage ('Build2') {
 //withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
-             sh "${env.jdk}/bin:${mvnHome}/bin/mvn clean install" 
+withEnv(${"PATH=${env.jHome}/bin"}){
+             sh "${mvnHome}/bin/mvn clean install" 
+             }
              //sh  "mvn clean install"
 //}
     }
