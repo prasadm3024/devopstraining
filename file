@@ -16,7 +16,7 @@ def mvnHome = tool 'maven3'
 
  //}
 
- stage('SCM: checkout') {
+ stage('SCM: checkout') 
 checkout scm
 
 
@@ -24,7 +24,7 @@ checkout scm
 
 
 
- }                  
+                  
 
  stage('Build')         {
 
@@ -34,7 +34,7 @@ checkout scm
 
     stage ('Build2') {
 //withEnv(["PATH+MAVEN=${tool 'maven3'}/bin"]){
-             sh "${mvnHome}/bin:${jdk8}/bin mvn clean install" 
+             sh "${env.jdk}/bin:${mvnHome}/bin/mvn clean install" 
              //sh  "mvn clean install"
 //}
     }
